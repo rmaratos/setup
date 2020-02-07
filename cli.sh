@@ -7,5 +7,5 @@ declare -a clis=(
 )
 
 for cli in "${clis[@]}"; do
-  brew cli "$cli"
+  brew install "$cli"
 done
