@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
 declare -a clis=(
-  'jq',
-  'mas',
+  'jq'
+  'mas'
   'wget'
 )
 
