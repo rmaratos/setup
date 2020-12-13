@@ -1,0 +1,48 @@
+alias sshconfig="code ~/.ssh/config"
+alias rm="rm -i"
+
+# git
+alias g='git'
+alias gp='git pull'
+alias gs='git status'
+alias gsh='git show'
+alias gd='git diff'
+alias gno='git commit --amend --no-edit .'
+alias gl='git log'
+alias gb='git branch'
+alias grm='git rebase master'
+alias m='git checkout master'
+alias f="git show --pretty="" --name-only"
+alias cf="git show --pretty="" --name-only | code"
+alias ..='cd ..'
+alias c='clear'
+alias pretty='git log --pretty=format:"%h%x09%an%x09%ad%x09%s" -n 10'
+alias workspace="cd ~/workspace"
+
+alias unhide="defaults write com.apple.finder AppleShowAllFiles -bool TRUE; killall Finder"
+alias hide="defaults write com.apple.finder AppleShowAllFiles -bool FALSE; killall Finder"
+
+manpdf() {
+    man -t $@ | open -f -a /Applications/Preview.app
+}
+
+checkoutFile() {
+    git show $1:$2>$2
+}
+
+function loop() {
+  while true; do 
+    echo "running: "$@""
+    # set -x; 
+    "$@"; 
+    # set +x; 
+    echo
+    read -p "Run again? [Y/n]" -n 1 -r RERUN
+    echo    # (optional) move to a new line
+    if [[ $RERUN =~ ^[Nn]$ ]]
+    then
+        echo "done"
+        return;
+    fi
+  done
+}
