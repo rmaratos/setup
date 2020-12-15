@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-declare -a apps=(
+declare -a cask_apps=(
   'alfred'
   'bettertouchtool'
   'dash'
@@ -10,9 +10,12 @@ declare -a apps=(
   'vlc'
 )
 
-for app in "${cask_apps[@]}"; do
-  brew cask install "$app"
-done
+# for app in "${cask_apps[@]}"; do
+  # echo "brew cask install $app" 
+  # brew cask install "$app"
+# done
+
+# exit 0  
 
 # Link Cask Apps to Alfred
 brew cask alfred link
