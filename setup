@@ -8,4 +8,8 @@ set -euo pipefail
 
 echo "setup starting"
 
+echo "creating ~/.bash_aliases"
+
+cat aliases > ~/.bash_aliases
+
 echo "setup finished"
