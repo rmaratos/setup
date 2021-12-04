@@ -1,3 +1,6 @@
+# clear shell
+clear
+
 alias sshconfig="code ~/.ssh/config"
 alias rm="rm -i"
 
@@ -10,25 +13,50 @@ alias gd='git diff'
 alias gno='git commit --amend --no-edit .'
 alias gl='git log'
 alias gb='git branch'
-alias grm='git rebase master'
+alias gaa="git add -A"
+alias grm="gfm && git rebase master"
+alias grim="gfm && git rebase -i master"
 alias m='git checkout master'
-alias f="git show --pretty="" --name-only"
+alias fs="git submodule update --init --recursive"
+alias f="git --no-pager show --pretty="" --name-only"
+alias fdiff='git --no-pager diff --pretty= --name-only'
 alias cf="git show --pretty="" --name-only | code"
 alias ..='cd ..'
 alias c='clear'
 alias pretty='git log --pretty=format:"%h%x09%an%x09%ad%x09%s" -n 10'
 alias workspace="cd ~/workspace"
+alias y="yarn --silent"
 
 alias unhide="defaults write com.apple.finder AppleShowAllFiles -bool TRUE; killall Finder"
 alias hide="defaults write com.apple.finder AppleShowAllFiles -bool FALSE; killall Finder"
+
+# see your most common commands
+alias history_stats="history | cut -c 8- | sort | uniq -c | sort -nr"
 
 manpdf() {
     man -t $@ | open -f -a /Applications/Preview.app
 }
 
+# reset files from other branches
+# for example reset web/package.json to what it is on master:
+# checkoutFile master web/package.json
 checkoutFile() {
     git show $1:$2>$2
 }
+
+alias gc="noglob git_commit"
+
+function git_commit() {
+  if [[ $# -eq 0 ]]; then
+    echo "Missing commit message"
+    return
+  fi
+  message="$*"
+  echo "Message: $message"
+  git add -A
+  git commit -m "$message"
+}
+
 
 function loop() {
   while true; do 
