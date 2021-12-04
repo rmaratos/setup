@@ -12,4 +12,8 @@ echo "creating ~/.bash_aliases"
 
 cat aliases > ~/.bash_aliases
 
+echo "calling settings.sh"
+
+bash settings.sh
+
 echo "setup finished"
