@@ -6,6 +6,7 @@ alias rm="rm -i"
 
 # git
 alias g='git'
+alias gco='git checkout'
 alias gp='git pull'
 alias gs='git status'
 alias gsh='git show'
