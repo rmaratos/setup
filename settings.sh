@@ -13,3 +13,6 @@ DISABLE_AUTO_TITLE="true"
 
 # include node_modules/.bin in PATH
 export PATH="$(yarn global bin):$(yarn bin):$PATH"
+
+# Hide "Last login"
+touch .hushlogin
